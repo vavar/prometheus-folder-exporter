@@ -6,7 +6,7 @@ Used for detect abnormal folder status to ensure other services can use that fol
 ## Example Config
 ```
 port: 8080
-targets :
+targets:
   - "C:"
   - "N:"
   - "C:/windows"
