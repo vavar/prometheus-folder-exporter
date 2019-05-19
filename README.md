@@ -1,7 +1,20 @@
 # Prometheus Folder Exporter
 
-Folder exporter for legacy system
-Use for detect folder status to ensure other services can process regularly
+Folder exporter for legacy system.
+Used for detect abnormal folder status to ensure other services can process regularly
+
+
+## Example metrics
+```
+# HELP folder_exists_metric 
+# TYPE folder_exists_metric gauge
+folder_exists_metric{path="C:"} 2
+folder_exists_metric{path="C:/Window"} 2
+folder_exists_metric{path="N:"} 1
+```
+2 = Active
+1 = Read Error
+0 = Inactive
 
 
 ## Build
