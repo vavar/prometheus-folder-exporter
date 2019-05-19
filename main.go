@@ -10,6 +10,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
+//Config ...
 type Config struct {
 	Port string 		`yml:"port"`
 	Targets []string 	`yml:"targets"`
@@ -26,7 +27,9 @@ func main() {
 	config := Config{}
 	if err := yaml.Unmarshal([]byte(data), &config); err != nil {
 		log.Fatal(err)
+		return
 	}
+
 	fmt.Printf("Start http server : %s ...\n", config.Port)
 	prometheus.MustRegister(NewFolderCollector(config.Targets))
 	http.Handle("/metrics", promhttp.Handler())
