@@ -12,9 +12,9 @@ folder_exists_metric{path="C:"} 2
 folder_exists_metric{path="C:/Window"} 2
 folder_exists_metric{path="N:"} 1
 ```
-2 = Active
-1 = Read Error
-0 = Inactive
+* 2 = Active
+* 1 = Read Error
+* 0 = Inactive
 
 
 ## Build
