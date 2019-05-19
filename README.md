@@ -1,7 +1,16 @@
 # Prometheus Folder Exporter
 
 Folder exporter for legacy system.
-Used for detect abnormal folder status to ensure other services can process regularly
+Used for detect abnormal folder status to ensure other services can use that folder properly
+
+## Example Config
+```
+port: 8080
+targets :
+  - "C:"
+  - "N:"
+  - "C:/windows"
+```
 
 
 ## Example metrics
@@ -9,7 +18,7 @@ Used for detect abnormal folder status to ensure other services can process regu
 # HELP folder_exists_metric 
 # TYPE folder_exists_metric gauge
 folder_exists_metric{path="C:"} 2
-folder_exists_metric{path="C:/Window"} 2
+folder_exists_metric{path="C:/Windows"} 2
 folder_exists_metric{path="N:"} 1
 ```
 * 2 = Active
