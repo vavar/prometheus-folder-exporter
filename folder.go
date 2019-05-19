@@ -22,13 +22,15 @@ func (fm *FolderMetric) Desc() *prometheus.Desc {
 }
 
 func (fm *FolderMetric) Collect(ch *chan<- prometheus.Metric) {
-	_, err := ioutil.ReadDir(fm.Path)
-	status := Inactive
+	dirInfo, err := ioutil.ReadDir(fm.Path)
+	var status FolderStatus
 	switch {
 		case err != nil:
 			status = ReadError
-		default:
+		case dirInfo != nil:
 			status = Active
+		default:
+			status = Inactive
 	}
 	*ch <- prometheus.MustNewConstMetric(fm.Desc(), prometheus.GaugeValue, float64(status))
 }
