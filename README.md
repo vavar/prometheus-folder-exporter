@@ -1,7 +1,8 @@
 # Prometheus Folder Exporter
 
-Folder exporter for legacy system.
-Used for detect abnormal folder status to ensure other services can use that folder properly
+Folder exporter for legacy system.  
+Used for monitor folder status to ensure other services in host machine work properly.  
+Using `ioutil.ReadDir` for monitoring.
 
 ## Example Config
 ```
