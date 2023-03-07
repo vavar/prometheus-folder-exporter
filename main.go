@@ -2,18 +2,19 @@ package main
 
 import (
 	"fmt"
-    "io/ioutil"
+	"io/ioutil"
+	"log"
 	"net/http"
-	"gopkg.in/yaml.v2"
-	"github.com/prometheus/common/log"
-  	"github.com/prometheus/client_golang/prometheus"
+
+	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	yaml "gopkg.in/yaml.v3"
 )
 
-//Config ...
+// Config ...
 type Config struct {
-	Port string 		`yml:"port"`
-	Targets []string 	`yml:"targets"`
+	Port    string   `yml:"port"`
+	Targets []string `yml:"targets"`
 }
 
 func main() {
